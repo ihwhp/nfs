@@ -33,12 +33,16 @@ config.vm.define "srvnfs" do |server|
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
-    box.vm.provision "shell", inline: <<-SHELL
+
+
+    client.vm.provision "shell", inline: <<-SHELL
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      dnf install -y nano nfs-utils
-  end
 
+	SHELL
+  end
+end
  # config.vm.define "serverv3" do |servernfs|
  #   servernfs.vm.box = 'centos/7.8'
  #   servernfs.vm.box_url = 'http://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box'
@@ -50,5 +54,3 @@ config.vm.define "srvnfs" do |server|
  #     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
  #   end
  # end
-
-end
