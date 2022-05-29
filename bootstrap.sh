@@ -10,8 +10,8 @@ SELINUXTYPE=targeted
 __EOF
 
 #Install nfs-utils
-sudo dnf install nfs-utils -y
+sudo dnf install -y nfs-utils 
 
 #Install utils
-yum install -y epel-release
-yum install -y nano ncdu tree
+dnf install -y epel-release
+dnf install -y nano ncdu tree
