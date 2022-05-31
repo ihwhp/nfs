@@ -42,7 +42,10 @@ config.vm.define "srvnfs" do |server|
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      cd /etc/yum.repos.d/; sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*; sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 	      dnf install -y nano nfs-utils
-
+              systemctl enable firewalld --now
+    	      echo "192.168.56.40:/srv/share/ /mnt nfs vers=3,proto=udp,noauto,x-systemd.automount 0 0" >> /etc/fstab
+	      systemctl daemon-reload
+	      systemctl restart remote-fs.target
 	SHELL
   end
 end

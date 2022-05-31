@@ -22,7 +22,7 @@ exportfs -av
 
 Команды натройки клиента:
 ```
-ystemctl enable firewalld --now
+systemctl enable firewalld --now
 systemctl status firewalld
 echo "192.168.56.40:/srv/share/ /mnt nfs vers=3,proto=udp,noauto,x-systemd.automount 0 0" >> /etc/fstab
 systemctl daemon-reload
@@ -134,3 +134,5 @@ checkfile
 # Выводы
 UDP по умолчанию не открыт в CentOS 8.4(Default NFS4.2 TCP)
 Получен опыт troubleshuting'а
+Для разнообразия client провижится через `Vagrantfile`
+Увеличены timeout на ожидание загрузки vm
