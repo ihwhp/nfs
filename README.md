@@ -19,8 +19,7 @@ cat << EOF > /etc/exports
 EOF
 exportfs -av
 ```
-*на CentOS8 служба сервера стартует через `nfs-server` а не `nfs`
-  *группа `nfsnoboody` заменяется группой `nobody`
+*на CentOS8 служба сервера стартует через `nfs-server` а не `nfs`  *группа `nfsnoboody` заменяется группой `nobody`
 
 Команды натройки клиента(**отличается от Vagrantfile provision т.к. настройка происходт в консоли**):
 ```
