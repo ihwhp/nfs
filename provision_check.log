@@ -1,0 +1,290 @@
+[mp@almavm nfs]$ vagrant status
+Current machine states:
+
+srvnfs                    poweroff (virtualbox)
+clnfs                     not created (virtualbox)
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+[mp@almavm nfs]$ vagrant destroy
+==> clnfs: VM not created. Moving on...
+    srvnfs: Are you sure you want to destroy the 'srvnfs' VM? [y/N] y
+==> srvnfs: Destroying VM and associated drives...
+[mp@almavm nfs]$ vagrant up
+Bringing machine 'srvnfs' up with 'virtualbox' provider...
+Bringing machine 'clnfs' up with 'virtualbox' provider...
+==> srvnfs: Importing base box 'centos/8.4'...
+==> srvnfs: Matching MAC address for NAT networking...
+==> srvnfs: Setting the name of the VM: nfs_srvnfs_1653991858176_91439
+==> srvnfs: Clearing any previously set network interfaces...
+==> srvnfs: Preparing network interfaces based on configuration...
+    srvnfs: Adapter 1: nat
+    srvnfs: Adapter 2: hostonly
+==> srvnfs: Forwarding ports...
+    srvnfs: 22 (guest) => 2222 (host) (adapter 1)
+==> srvnfs: Running 'pre-boot' VM customizations...
+==> srvnfs: Booting VM...
+==> srvnfs: Waiting for machine to boot. This may take a few minutes...
+    srvnfs: SSH address: 127.0.0.1:2222
+    srvnfs: SSH username: vagrant
+    srvnfs: SSH auth method: private key
+    srvnfs: Warning: Remote connection disconnect. Retrying...
+    srvnfs:
+    srvnfs: Vagrant insecure key detected. Vagrant will automatically replace
+    srvnfs: this with a newly generated keypair for better security.
+    srvnfs:
+    srvnfs: Inserting generated public key within guest...
+    srvnfs: Removing insecure key from the guest if it's present...
+    srvnfs: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> srvnfs: Machine booted and ready!
+==> srvnfs: Checking for guest additions in VM...
+    srvnfs: No guest additions were detected on the base box for this VM! Guest
+    srvnfs: additions are required for forwarded ports, shared folders, host only
+    srvnfs: networking, and more. If SSH fails on this machine, please install
+    srvnfs: the guest additions and repackage the box to continue.
+    srvnfs:
+    srvnfs: This is not an error message; everything may continue to work properly,
+    srvnfs: in which case you may ignore this message.
+==> srvnfs: Setting hostname...
+==> srvnfs: Configuring and enabling network interfaces...
+==> srvnfs: Rsyncing folder: /home/mp/otus/nfs/ => /vagrant
+==> srvnfs: Running provisioner: Bootstrap configuration (shell)...
+    srvnfs: Running: script: Bootstrap configuration
+    srvnfs: CentOS Linux 8 - AppStream                      3.9 MB/s | 8.4 MB     00:02
+    srvnfs: CentOS Linux 8 - BaseOS                         4.3 MB/s | 4.6 MB     00:01
+    srvnfs: CentOS Linux 8 - Extras                          27 kB/s |  10 kB     00:00
+    srvnfs: Dependencies resolved.
+    srvnfs: ================================================================================
+    srvnfs:  Package               Architecture    Version            Repository       Size
+    srvnfs: ================================================================================
+    srvnfs: Installing:
+    srvnfs:  epel-release          noarch          8-11.el8           extras           24 k
+    srvnfs:
+    srvnfs: Transaction Summary
+    srvnfs: ================================================================================
+    srvnfs: Install  1 Package
+    srvnfs:
+    srvnfs: Total download size: 24 k
+    srvnfs: Installed size: 35 k
+    srvnfs: Downloading Packages:
+    srvnfs: epel-release-8-11.el8.noarch.rpm                132 kB/s |  24 kB     00:00
+    srvnfs: --------------------------------------------------------------------------------
+    srvnfs: Total                                           125 kB/s |  24 kB     00:00
+    srvnfs: warning: /var/cache/dnf/extras-841cbf2e55745cba/packages/epel-release-8-11.el8.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 8483c65d: NOKEY
+    srvnfs: CentOS Linux 8 - Extras                         543 kB/s | 1.6 kB     00:00
+    srvnfs: Importing GPG key 0x8483C65D:
+    srvnfs:  Userid     : "CentOS (CentOS Official Signing Key) <security@centos.org>"
+    srvnfs:  Fingerprint: 99DB 70FA E1D7 CE22 7FB6 4882 05B5 55B3 8483 C65D
+    srvnfs:  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+    srvnfs: Key imported successfully
+    srvnfs: Running transaction check
+    srvnfs: Transaction check succeeded.
+    srvnfs: Running transaction test
+    srvnfs: Transaction test succeeded.
+    srvnfs: Running transaction
+    srvnfs:   Preparing        :                                                        1/1
+    srvnfs:   Installing       : epel-release-8-11.el8.noarch                           1/1
+    srvnfs:   Running scriptlet: epel-release-8-11.el8.noarch                           1/1
+    srvnfs:   Verifying        : epel-release-8-11.el8.noarch                           1/1
+    srvnfs:
+    srvnfs: Installed:
+    srvnfs:   epel-release-8-11.el8.noarch
+    srvnfs:
+    srvnfs: Complete!
+    srvnfs: Extra Packages for Enterprise Linux Modular 8 - 872 kB/s | 1.0 MB     00:01
+    srvnfs: Extra Packages for Enterprise Linux 8 - x86_64  3.9 MB/s |  11 MB     00:02
+    srvnfs: Last metadata expiration check: 0:00:02 ago on Tue 31 May 2022 10:17:19 AM UTC.
+    srvnfs: Module yaml error: Unexpected key in data: static_context [line 9 col 3]
+    srvnfs: Module yaml error: Unexpected key in data: static_context [line 9 col 3]
+    srvnfs: Package nfs-utils-1:2.3.3-41.el8.x86_64 is already installed.
+    srvnfs: Dependencies resolved.
+    srvnfs: ================================================================================
+    srvnfs:  Package           Architecture   Version                  Repository      Size
+    srvnfs: ================================================================================
+    srvnfs: Upgrading:
+    srvnfs:  nfs-utils         x86_64         1:2.3.3-46.el8           baseos         500 k
+    srvnfs:
+    srvnfs: Transaction Summary
+    srvnfs: ================================================================================
+    srvnfs: Upgrade  1 Package
+    srvnfs:
+    srvnfs: Total download size: 500 k
+    srvnfs: Downloading Packages:
+    srvnfs: nfs-utils-2.3.3-46.el8.x86_64.rpm               1.5 MB/s | 500 kB     00:00
+    srvnfs: --------------------------------------------------------------------------------
+    srvnfs: Total                                           1.5 MB/s | 500 kB     00:00
+    srvnfs: Running transaction check
+    srvnfs: Transaction check succeeded.
+    srvnfs: Running transaction test
+    srvnfs: Transaction test succeeded.
+    srvnfs: Running transaction
+    srvnfs:   Preparing        :                                                        1/1
+    srvnfs:   Running scriptlet: nfs-utils-1:2.3.3-46.el8.x86_64                        1/1
+    srvnfs:   Running scriptlet: nfs-utils-1:2.3.3-46.el8.x86_64                        1/2
+    srvnfs:   Upgrading        : nfs-utils-1:2.3.3-46.el8.x86_64                        1/2
+    srvnfs:   Running scriptlet: nfs-utils-1:2.3.3-46.el8.x86_64                        1/2
+    srvnfs:   Running scriptlet: nfs-utils-1:2.3.3-41.el8.x86_64                        2/2
+    srvnfs:   Cleanup          : nfs-utils-1:2.3.3-41.el8.x86_64                        2/2
+    srvnfs:   Running scriptlet: nfs-utils-1:2.3.3-41.el8.x86_64                        2/2
+    srvnfs:   Verifying        : nfs-utils-1:2.3.3-46.el8.x86_64                        1/2
+    srvnfs:   Verifying        : nfs-utils-1:2.3.3-41.el8.x86_64                        2/2
+    srvnfs:
+    srvnfs: Upgraded:
+    srvnfs:   nfs-utils-1:2.3.3-46.el8.x86_64
+    srvnfs:
+    srvnfs: Complete!
+    srvnfs: Last metadata expiration check: 0:00:55 ago on Tue 31 May 2022 10:17:19 AM UTC.
+    srvnfs: Module yaml error: Unexpected key in data: static_context [line 9 col 3]
+    srvnfs: Module yaml error: Unexpected key in data: static_context [line 9 col 3]
+    srvnfs: Dependencies resolved.
+    srvnfs: ================================================================================
+    srvnfs:  Package        Architecture     Version                 Repository        Size
+    srvnfs: ================================================================================
+    srvnfs: Installing:
+    srvnfs:  nano           x86_64           2.9.8-1.el8             baseos           581 k
+    srvnfs:  ncdu           x86_64           1.16-1.el8              epel              59 k
+    srvnfs:  tree           x86_64           1.7.0-15.el8            baseos            59 k
+    srvnfs:
+    srvnfs: Transaction Summary
+    srvnfs: ================================================================================
+    srvnfs: Install  3 Packages
+    srvnfs:
+    srvnfs: Total download size: 699 k
+    srvnfs: Installed size: 2.4 M
+    srvnfs: Downloading Packages:
+    srvnfs: (1/3): ncdu-1.16-1.el8.x86_64.rpm               418 kB/s |  59 kB     00:00
+    srvnfs: (2/3): nano-2.9.8-1.el8.x86_64.rpm              1.3 MB/s | 581 kB     00:00
+    srvnfs: (3/3): tree-1.7.0-15.el8.x86_64.rpm             113 kB/s |  59 kB     00:00
+    srvnfs: --------------------------------------------------------------------------------
+    srvnfs: Total                                           512 kB/s | 699 kB     00:01
+    srvnfs: warning: /var/cache/dnf/epel-6c12381928511f32/packages/ncdu-1.16-1.el8.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 2f86d6a1: NOKEY
+    srvnfs: Extra Packages for Enterprise Linux 8 - x86_64  870 kB/s | 1.6 kB     00:00
+    srvnfs: Importing GPG key 0x2F86D6A1:
+    srvnfs:  Userid     : "Fedora EPEL (8) <epel@fedoraproject.org>"
+    srvnfs:  Fingerprint: 94E2 79EB 8D8F 25B2 1810 ADF1 21EA 45AB 2F86 D6A1
+    srvnfs:  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+    srvnfs: Key imported successfully
+    srvnfs: Running transaction check
+    srvnfs: Transaction check succeeded.
+    srvnfs: Running transaction test
+    srvnfs: Transaction test succeeded.
+    srvnfs: Running transaction
+    srvnfs:   Preparing        :                                                        1/1
+    srvnfs:   Installing       : ncdu-1.16-1.el8.x86_64                                 1/3
+    srvnfs:   Installing       : tree-1.7.0-15.el8.x86_64                               2/3
+    srvnfs:   Installing       : nano-2.9.8-1.el8.x86_64                                3/3
+    srvnfs:   Running scriptlet: nano-2.9.8-1.el8.x86_64                                3/3
+    srvnfs:   Verifying        : nano-2.9.8-1.el8.x86_64                                1/3
+    srvnfs:   Verifying        : tree-1.7.0-15.el8.x86_64                               2/3
+    srvnfs:   Verifying        : ncdu-1.16-1.el8.x86_64                                 3/3
+    srvnfs:
+    srvnfs: Installed:
+    srvnfs:   nano-2.9.8-1.el8.x86_64   ncdu-1.16-1.el8.x86_64   tree-1.7.0-15.el8.x86_64
+    srvnfs:
+    srvnfs: Complete!
+    srvnfs: Created symlink /etc/systemd/system/multi-user.target.wants/nfs-server.service → /usr/lib/systemd/system/nfs-server.service.
+    srvnfs: FirewallD is not running
+    srvnfs: FirewallD is not running
+==> clnfs: Importing base box 'centos/8.4'...
+==> clnfs: Matching MAC address for NAT networking...
+==> clnfs: Setting the name of the VM: nfs_clnfs_1653992343347_65334
+==> clnfs: Fixed port collision for 22 => 2222. Now on port 2200.
+==> clnfs: Clearing any previously set network interfaces...
+==> clnfs: Preparing network interfaces based on configuration...
+    clnfs: Adapter 1: nat
+    clnfs: Adapter 2: hostonly
+==> clnfs: Forwarding ports...
+    clnfs: 22 (guest) => 2200 (host) (adapter 1)
+==> clnfs: Running 'pre-boot' VM customizations...
+==> clnfs: Booting VM...
+==> clnfs: Waiting for machine to boot. This may take a few minutes...
+    clnfs: SSH address: 127.0.0.1:2200
+    clnfs: SSH username: vagrant
+    clnfs: SSH auth method: private key
+    clnfs:
+    clnfs: Vagrant insecure key detected. Vagrant will automatically replace
+    clnfs: this with a newly generated keypair for better security.
+    clnfs:
+    clnfs: Inserting generated public key within guest...
+    clnfs: Removing insecure key from the guest if it's present...
+    clnfs: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> clnfs: Machine booted and ready!
+==> clnfs: Checking for guest additions in VM...
+    clnfs: No guest additions were detected on the base box for this VM! Guest
+    clnfs: additions are required for forwarded ports, shared folders, host only
+    clnfs: networking, and more. If SSH fails on this machine, please install
+    clnfs: the guest additions and repackage the box to continue.
+    clnfs:
+    clnfs: This is not an error message; everything may continue to work properly,
+    clnfs: in which case you may ignore this message.
+==> clnfs: Setting hostname...
+==> clnfs: Configuring and enabling network interfaces...
+==> clnfs: Rsyncing folder: /home/mp/otus/nfs/ => /vagrant
+==> clnfs: Running provisioner: shell...
+    clnfs: Running: inline script
+    clnfs: CentOS Linux 8 - AppStream                      2.4 MB/s | 8.4 MB     00:03
+    clnfs: CentOS Linux 8 - BaseOS                         2.1 MB/s | 4.6 MB     00:02
+    clnfs: CentOS Linux 8 - Extras                          14 kB/s |  10 kB     00:00
+    clnfs: Last metadata expiration check: 0:00:01 ago on Tue 31 May 2022 10:28:03 AM UTC.
+    clnfs: Package nfs-utils-1:2.3.3-41.el8.x86_64 is already installed.
+    clnfs: Dependencies resolved.
+    clnfs: ================================================================================
+    clnfs:  Package           Architecture   Version                  Repository      Size
+    clnfs: ================================================================================
+    clnfs: Installing:
+    clnfs:  nano              x86_64         2.9.8-1.el8              baseos         581 k
+    clnfs: Upgrading:
+    clnfs:  nfs-utils         x86_64         1:2.3.3-46.el8           baseos         500 k
+    clnfs:
+    clnfs: Transaction Summary
+    clnfs: ================================================================================
+    clnfs: Install  1 Package
+    clnfs: Upgrade  1 Package
+    clnfs:
+    clnfs: Total download size: 1.1 M
+    clnfs: Downloading Packages:
+    clnfs: (1/2): nfs-utils-2.3.3-46.el8.x86_64.rpm        718 kB/s | 500 kB     00:00
+    clnfs: (2/2): nano-2.9.8-1.el8.x86_64.rpm              742 kB/s | 581 kB     00:00
+    clnfs: --------------------------------------------------------------------------------
+    clnfs: Total                                           1.3 MB/s | 1.1 MB     00:00
+    clnfs: warning: /var/cache/dnf/baseos-398269605bdca3dc/packages/nano-2.9.8-1.el8.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 8483c65d: NOKEY
+    clnfs: CentOS Linux 8 - BaseOS                         291 kB/s | 1.6 kB     00:00
+    clnfs: Importing GPG key 0x8483C65D:
+    clnfs:  Userid     : "CentOS (CentOS Official Signing Key) <security@centos.org>"
+    clnfs:  Fingerprint: 99DB 70FA E1D7 CE22 7FB6 4882 05B5 55B3 8483 C65D
+    clnfs:  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+    clnfs: Key imported successfully
+    clnfs: Running transaction check
+    clnfs: Transaction check succeeded.
+    clnfs: Running transaction test
+    clnfs: Transaction test succeeded.
+    clnfs: Running transaction
+    clnfs:   Preparing        :                                                        1/1
+    clnfs:   Running scriptlet: nfs-utils-1:2.3.3-46.el8.x86_64                        1/1
+    clnfs:   Running scriptlet: nfs-utils-1:2.3.3-46.el8.x86_64                        1/3
+    clnfs:   Upgrading        : nfs-utils-1:2.3.3-46.el8.x86_64                        1/3
+    clnfs:   Running scriptlet: nfs-utils-1:2.3.3-46.el8.x86_64                        1/3
+    clnfs:   Installing       : nano-2.9.8-1.el8.x86_64                                2/3
+    clnfs:   Running scriptlet: nano-2.9.8-1.el8.x86_64                                2/3
+    clnfs:   Running scriptlet: nfs-utils-1:2.3.3-41.el8.x86_64                        3/3
+    clnfs:   Cleanup          : nfs-utils-1:2.3.3-41.el8.x86_64                        3/3
+    clnfs:   Running scriptlet: nfs-utils-1:2.3.3-41.el8.x86_64                        3/3
+    clnfs:   Verifying        : nano-2.9.8-1.el8.x86_64                                1/3
+    clnfs:   Verifying        : nfs-utils-1:2.3.3-46.el8.x86_64                        2/3
+    clnfs:   Verifying        : nfs-utils-1:2.3.3-41.el8.x86_64                        3/3
+    clnfs:
+    clnfs: Upgraded:
+    clnfs:   nfs-utils-1:2.3.3-46.el8.x86_64
+    clnfs: Installed:
+    clnfs:   nano-2.9.8-1.el8.x86_64
+    clnfs:
+    clnfs: Complete!
+    clnfs: Created symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service → /usr/lib/systemd/system/firewalld.service.
+    clnfs: Created symlink /etc/systemd/system/multi-user.target.wants/firewalld.service → /usr/lib/systemd/system/firewalld.service.
+[mp@almavm nfs]$ vagrant ssh clnfs
+[vagrant@nfsclient ~]$ ls /mnt/
+upload
+[vagrant@nfsclient ~]$ ls /mnt/upload/
+check_file
+
