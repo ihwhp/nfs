@@ -2,15 +2,15 @@
 
 ## Разворачиваем стенд
 
-Для стенде берем box CentOS 8 с репозитария CentOS
+Для стенда берем box CentOS 8 с репозитария CentOS
 
-nfs-utils провижится из скрипта bootstrap.sh для сервера и из Vagrantfile для клиента
+*nfs-utils провижится из скрипта bootstrap.sh для сервера и из Vagrantfile для клиента
 
-Команды настройки сервера:
+Команды настройки сервера(**отличается от botstrap.sh т.к. настройка происходт в консоли**):
 ```
-systemctl enable --now nfs-server
 firewall-cmd --add-service={nfs,nfs3,rpc-bind,mountd} --permanent
 firewall-cmd --reload
+systemctl enable --now nfs-server
 mkdir -p /srv/share/upload
 chown -R nobody:nobody /srv/share
 chmod 0777 /srv/share/upload
@@ -19,8 +19,10 @@ cat << EOF > /etc/exports
 EOF
 exportfs -av
 ```
+*на CentOS8 служба сервера стартует через `nfs-server` а не `nfs`
+*группа `nfsnoboody` заменяется группой `nobody`
 
-Команды натройки клиента:
+Команды натройки клиента(**отличается от Vagrantfile provision т.к. настройка происходт в консоли**):
 ```
 systemctl enable firewalld --now
 systemctl status firewalld
