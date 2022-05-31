@@ -1,6 +1,6 @@
-#ДЗ№6 NFS
+# ДЗ№6 NFS
 
-##Разворачиваем стенд
+## Разворачиваем стенд
 
 Для стенде берем box CentOS 8 с репозитария CentOS
 
@@ -11,7 +11,6 @@ nfs-utils провижится из скрипта bootstrap.sh для серв�
 systemctl enable --now nfs-server
 firewall-cmd --add-service={nfs,nfs3,rpc-bind,mountd} --permanent
 firewall-cmd --reload
-rpcinfo -p
 mkdir -p /srv/share/upload
 chown -R nobody:nobody /srv/share
 chmod 0777 /srv/share/upload
@@ -29,7 +28,7 @@ echo "192.168.56.40:/srv/share/ /mnt nfs vers=3,proto=udp,noauto,x-systemd.autom
 systemctl daemon-reload
 systemctl restart remote-fs.target
 ```
-##Troubleshooting
+## Troubleshooting
 
 **Клиент:**
 ```
@@ -131,3 +130,7 @@ root@nfsclient:~^G[root@nfsclient ~]# ls /mnt/upload/
 checkfile
 
 ```
+
+# Выводы
+UDP по умолчанию не открыт в CentOS 8.4(Default NFS4.2 TCP)
+Получен опыт troubleshuting'а
