@@ -132,7 +132,7 @@ checkfile
 ```
 
 # Выводы
-UDP по умолчанию не открыт в CentOS 8.4(Default NFS4.2 TCP)
-Получен опыт troubleshuting'а
-Для разнообразия client провижится через `Vagrantfile`
-Увеличены timeout на ожидание загрузки vm
++ UDP по умолчанию не открыт в CentOS 8.4(Default NFS4.2 TCP)
++ Получен опыт troubleshuting'а
++ Для разнообразия client провижится через `Vagrantfile`
++ Увеличены timeout на ожидание загрузки vm
