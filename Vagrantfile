@@ -7,6 +7,7 @@ require 'fileutils'
 Vagrant.configure("2") do |config|
 
 config.vm.define "srvnfs" do |server|
+  config.vm.boot_timeout = 420
   config.vm.box = 'centos/8.4'
   config.vm.box_url = 'http://cloud.centos.org/centos/8/vagrant/x86_64/images/CentOS-8-Vagrant-8.4.2105-20210603.0.x86_64.vagrant-virtualbox.box'
   server.vm.host_name = 'srvnfs'
@@ -25,6 +26,7 @@ config.vm.define "srvnfs" do |server|
 
 
   config.vm.define "clnfs" do |client|
+    config.vm.boot_timeout = 420
     client.vm.box = 'centos/8.4'
     config.vm.box_url = 'http://cloud.centos.org/centos/8/vagrant/x86_64/images/CentOS-8-Vagrant-8.4.2105-20210603.0.x86_64.vagrant-virtualbox.box'
     client.vm.host_name = 'nfsclient'
@@ -38,6 +40,7 @@ config.vm.define "srvnfs" do |server|
     client.vm.provision "shell", inline: <<-SHELL
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
+	      cd /etc/yum.repos.d/; sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*; sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 	      dnf install -y nano nfs-utils
 
 	SHELL
